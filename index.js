@@ -4,17 +4,19 @@
 const express = require("express")
 const app = express()
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, ()=> {
     console.log(`Server Connected Successfully @ ${PORT}`)
 })
 
 //REQ - RES
-app.use('/home', (req, res)=>{
+app.use('/', (req, res)=>{
     res.send("<h1>Welcom Suby")
 })
 //By using the middleware, we can define the requesting paths, and respective responses
+
+//12.Deployment
 
 //02.connect to mongodb
 const mongoose = require("mongoose")
