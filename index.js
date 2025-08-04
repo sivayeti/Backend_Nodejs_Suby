@@ -12,13 +12,13 @@ app.listen(PORT, ()=> {
 
 //REQ - RES
 app.use('/', (req, res)=>{
-    res.send("<h1>Welcom Suby")
+    res.send("<h1>Welcom to Suby")
 })
 //By using the middleware, we can define the requesting paths, and respective responses
 
 //12.Deployment
 
-//02.connect to mongodb
+//02. to mongodb
 const mongoose = require("mongoose")
 const dotEnv = require("dotenv")
 
@@ -28,6 +28,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(
     ()=> console.log("Connected to mongodb successfully")
 )
+
 .catch(
     (error) => console.error(error)
 )
@@ -40,7 +41,6 @@ app.use(bodyParser.json())
 const vendorRoutes = require('./router/vendorRoutes')
 
 app.use('/vendor', vendorRoutes)
-
 
 //04.Vendor login - Based on the login credentials, we have to verify based on that credentials, any record is existed in vendors table or not
 
@@ -71,3 +71,4 @@ app.use('/product', productRoutes)
 //for image dynamic routing
 const path = require("path")
 app.use('/uploads', express.static('uploads'));
+
